@@ -35,13 +35,26 @@ const serverlessConfiguration: AWS = {
   },
   package: {},
   functions: {
-    generateCertificate: {
-      handler: "src/functions/helloworld.handler",
+    createTodo: {
+      handler: "src/functions/createTodo.handler",
       events: [
         {
           http: {
-            path: "helloworld",
+            path: "createTodo",
             method: "post",
+
+            cors: true
+          }
+        }
+      ]
+    },
+    getTodos: {
+      handler: "src/functions/getTodos.handler",
+      events: [
+        {
+          http: {
+            path: "getTodos",
+            method: "get",
 
             cors: true
           }
